@@ -5,7 +5,7 @@ import { QUIZ_PAGE } from "./pages/quizPage";
 const App = () => {
   return (
     <div className="bg-gray-900 min-h-screen w-full flex flex-col justify-center items-center p-4 ">
-      <BrowserRouter>
+      <BrowserRouter basename={window.location.pathname || ""}>
         <Switch>
           <Route exact path="/">
             <LIST_PAGE />

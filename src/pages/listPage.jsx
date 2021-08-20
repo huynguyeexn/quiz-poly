@@ -8,7 +8,7 @@ const LIST_PAGE = () => {
     <div className="max-w-2xl p-4 text-gray-300">
       {QuizPhapLuat.map((quiz, index) => (
         <div
-          className="bg-gray-800 rounded-lg flex flex-row mb-4 justify-between"
+          className="bg-gray-800 rounded-lg flex flex-row mb-4 justify-between overflow-hidden hover:scale-105 transform duration-300"
           key={index}
         >
           <div className="p-6">
@@ -21,7 +21,7 @@ const LIST_PAGE = () => {
           </div>
           <Link
             to={`/phap-luat/${index}`}
-            className="p-4 bg-purple-900 rounded-r-lg flex justify-center items-center font-semibold hover:bg-purple-700 duration-200"
+            className="py-4 px-8 bg-gradient-to-r from-blue-600 via-purple-700 to-purple-700 flex justify-center items-center font-semibold hover:opacity-70 duration-200"
           >
             <HiOutlineArrowRight></HiOutlineArrowRight>
           </Link>
