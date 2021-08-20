@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import LIST_PAGE from "./pages/listPage";
+import { QUIZ_PAGE } from "./pages/quizPage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-gray-900 min-h-screen w-full flex flex-col justify-center items-center p-4 ">
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <LIST_PAGE />
+          </Route>
+          <Route exact path="/phap-luat/:id">
+            <QUIZ_PAGE />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
