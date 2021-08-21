@@ -1,63 +1,58 @@
-import { Section1 } from "../data/PhapLuat";
-import { QuizPhapLuat } from "../data";
+import { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import QUIZ_BOX from "../components/quiz/quizBox";
+import { useSelector, useDispatch } from "react-redux";
+import { setQuizzes, resetQuiz } from "../features/quiz/quizSlice";
+import { BsArrowLeft } from "react-icons/bs";
+import { selectSection } from "../features/section/sectionSlice";
 
-import { useState, useEffect } from "react";
-import { QUIZ_BOX } from "../components/quiz";
+const QUIZ_PAGE = () => {
+  const { sectionIndex, quizIndex } = useParams();
+  console.log(sectionIndex, quizIndex);
 
-import { useParams } from "react-router-dom";
+  const section = useSelector((state) => state.section.section);
+  const { quiz } = useSelector((state) => state.quiz);
+  const history = useHistory();
 
-export const QUIZ_PAGE = () => {
-  const { id } = useParams();
-
-  console.log(QuizPhapLuat[id]);
-  const [quizList, setQuizList] = useState(
-    QuizPhapLuat[id].quizList.sort(() => Math.random() - 0.5)
-  );
-  const [currentQuiz, setCurrentQuiz] = useState(null);
-  const [index, setIndex] = useState(0);
-  const [mark, setMark] = useState(0);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setCurrentQuiz(quizList[index]);
-  }, [index]);
-
-  const handleOnSelectAnswer = (i) => {
-    if (currentQuiz.correct === i) {
-      setMark(mark + 1);
+    if (!section) {
+      const payload = {
+        sectionIndex: sectionIndex,
+        quizIndex: quizIndex,
+      };
+      dispatch(selectSection(payload));
     }
+    return () => {
+      dispatch(resetQuiz());
+    };
+  }, []);
 
-    setCurrentQuiz({ ...currentQuiz, selected: i });
-
-    const newList = [...quizList];
-    newList[index].selected = i;
-    setQuizList(newList);
-  };
-
-  const handlePrevQuestion = () => {
-    setIndex(index - 1);
-  };
-  const handleNextQuestion = () => {
-    setIndex(index + 1);
-  };
+  useEffect(() => {
+    if (section && section.quizList) {
+      dispatch(setQuizzes(section.quizList));
+    }
+  }, [section]);
 
   return (
     <>
-      <div className=" flex justify-between  font-semibold text-lg my-3 w-full max-w-2xl text-gray-300 space-x-4">
-        <span className="">{QuizPhapLuat[id].name}</span>
-        <span>
-          Điểm: {mark}/{quizList.length}
-        </span>
-      </div>
-      {currentQuiz && (
-        <QUIZ_BOX
-          index={index + 1}
-          max={quizList.length}
-          prevQuestion={handlePrevQuestion}
-          nextQuestion={handleNextQuestion}
-          onSelectAnswer={handleOnSelectAnswer}
-          {...currentQuiz}
-        />
+      {section && (
+        <div className="max-w-xl my-3 text-lg text-gray-300">
+          <div className="flex items-center justify-start space-x-4">
+            <button
+              onClick={(e) => history.push("/")}
+              className="p-4 mb-4 duration-200 border-2 border-purple-700 rounded-lg hover:bg-purple-700"
+            >
+              <BsArrowLeft className="text-2xl font-semibold" />
+            </button>
+            <p className="mb-4 text-2xl">{section.name}</p>
+          </div>
+          {quiz && <QUIZ_BOX />}
+        </div>
       )}
     </>
   );
 };
+
+export default QUIZ_PAGE;

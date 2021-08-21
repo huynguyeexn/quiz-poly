@@ -1,65 +1,55 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import clx from "classnames";
+import PROGRESS from "./progress";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  nextQuiz,
+  prevQuiz,
+  selectAnswer,
+} from "../../features/quiz/quizSlice";
 
-export const QUIZ_BOX = (props) => {
-  const [isSelected, setIsSelected] = useState(null);
-  const [countSelected, setCountSelected] = useState(0);
-
-  useEffect(() => {
-    console.log(props);
-    if (props.selected > -1) {
-      setIsSelected(props.selected);
-    } else {
-      setIsSelected(null);
-    }
-  }, [props.answers]);
+const QUIZ_BOX = (props) => {
+  const { quiz, quizzes, mark, currentIndex, totalSelected } = useSelector(
+    (state) => state.quiz
+  );
+  const dispatch = useDispatch();
 
   const handleOnSelectAnswer = (index) => {
-    if (isSelected === null) {
-      setCountSelected(countSelected + 1);
-      setIsSelected(index);
-      props.onSelectAnswer(index);
+    if (quiz.selected === -1) {
+      dispatch(selectAnswer(index));
     }
   };
 
+  const prevOnClick = () => {
+    dispatch(prevQuiz());
+  };
+
+  const nextOnClick = () => {
+    dispatch(nextQuiz());
+  };
+
   return (
-    <div className="bg-gray-800 rounded-lg p-5 max-w-2xl text-gray-300  duration-200">
-      <div className="progress mb-5">
-        <div
-          className="bg-gray-900 rounded h-1"
-          role="progressbar"
-          aria-valuemin="0"
-          aria-valuemax="100"
-        >
-          <div
-            className="bg-gradient-to-r from-blue-400 to-purple-800 rounded h-1 text-center"
-            style={{
-              width: `${(countSelected / props.max) * 100}%`,
-              transition: "width 2s",
-            }}
-          ></div>
-        </div>
-        <p className="text-center mt-2">
-          Câu {props.index}/{props.max}
-        </p>
-      </div>
-      <div className="question mb-5 duration-200">
-        <h5 className="font-semibold text-center text-xl">{props.question}</h5>
+    <div className="max-w-xl p-5 text-gray-300 duration-200 bg-gray-800 rounded-lg">
+      <PROGRESS totalQuiz={quizzes.length} mark={mark} />
+      <div className="mb-5 duration-200 question">
+        <h5 className="text-xl font-semibold leading-8 text-center">
+          Câu {currentIndex + 1}: {quiz.question}
+        </h5>
       </div>
       <div className="answers">
-        {props.answers &&
-          props.answers.map((answer, index) => (
+        {quiz &&
+          quiz.answers.map((answer, index) => (
             <button
               key={index}
               onClick={(e) => handleOnSelectAnswer(index)}
               className={clx(
-                "mb-3 px-6 py-4 w-full rounded-lg border-2 border-gray-700 uppercase text-sm font-semibold hover:bg-gray-700 duration-200",
+                "mb-3 px-6 py-4 w-full rounded-lg border-2 border-gray-700  hover:bg-gray-700 duration-200",
                 {
                   "border-green-600":
-                    isSelected !== null && props.correct === index,
+                    quiz.selected > -1 && quiz.correct === index,
                   "border-red-600":
-                    isSelected === index && props.correct !== index,
+                    quiz.selected === index && quiz.correct !== index,
                 }
               )}
             >
@@ -67,24 +57,25 @@ export const QUIZ_BOX = (props) => {
             </button>
           ))}
       </div>
-      <div className="button-group flex justify-between items-center border-t-2 border-gray-700 mt-4 pt-4">
+      <div className="text-center"></div>
+      <div className="flex items-center justify-between pt-4 mt-4 border-t-2 border-gray-700 button-group">
         <div className="">
-          {props.index > 1 && (
+          {currentIndex > 0 && (
             <button
-              onClick={props.prevQuestion}
-              className="hover:bg-purple-700 px-6 py-3 rounded-lg duration-200 font-semibold border-2 border-purple-700"
+              onClick={prevOnClick}
+              className="px-6 py-3 font-semibold duration-200 border-2 border-purple-700 rounded-lg hover:bg-purple-700 "
             >
-              Câu {props.index - 1}
+              Câu {currentIndex}
             </button>
           )}
         </div>
         <div className="">
-          {props.index < props.max && (
+          {currentIndex < quizzes.length - 1 && (
             <button
-              onClick={props.nextQuestion}
-              className="hover:bg-purple-700 px-6 py-3 rounded-lg duration-200 font-semibold border-2 border-purple-700"
+              onClick={nextOnClick}
+              className="px-6 py-3 font-semibold duration-200 border-2 border-purple-700 rounded-lg hover:bg-purple-700 "
             >
-              Câu {props.index + 1}
+              Câu {currentIndex + 1}
             </button>
           )}
         </div>
@@ -93,26 +84,4 @@ export const QUIZ_BOX = (props) => {
   );
 };
 
-QUIZ_BOX.propTypes = {
-  answers: PropTypes.array,
-  correct: PropTypes.number,
-  question: PropTypes.string,
-  selected: PropTypes.number,
-  index: PropTypes.number,
-  max: PropTypes.number,
-  onSelectAnswer: PropTypes.func,
-  prevQuestion: PropTypes.func,
-  nextQuestion: PropTypes.func,
-};
-
-QUIZ_BOX.defaultProps = {
-  answers: [],
-  correct: -1,
-  question: "",
-  selected: -1,
-  index: 1,
-  max: 1,
-  onSelectAnswer: null,
-  prevQuestion: null,
-  nextQuestion: null,
-};
+export default QUIZ_BOX;
