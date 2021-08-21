@@ -1,22 +1,17 @@
 {
   "files": {
-    "main.css": "/quiz-poly/static/css/main.326e1300.chunk.css",
+    "main.css": "/quiz-poly/static/css/main.9de5d004.chunk.css",
     "main.js": "/quiz-poly/static/js/main.6af5fdd1.chunk.js",
-    "main.js.map": "/quiz-poly/static/js/main.6af5fdd1.chunk.js.map",
     "runtime-main.js": "/quiz-poly/static/js/runtime-main.96493a75.js",
-    "runtime-main.js.map": "/quiz-poly/static/js/runtime-main.96493a75.js.map",
     "static/js/2.a773ac66.chunk.js": "/quiz-poly/static/js/2.a773ac66.chunk.js",
-    "static/js/2.a773ac66.chunk.js.map": "/quiz-poly/static/js/2.a773ac66.chunk.js.map",
     "static/js/3.38894b29.chunk.js": "/quiz-poly/static/js/3.38894b29.chunk.js",
-    "static/js/3.38894b29.chunk.js.map": "/quiz-poly/static/js/3.38894b29.chunk.js.map",
     "index.html": "/quiz-poly/index.html",
-    "static/css/main.326e1300.chunk.css.map": "/quiz-poly/static/css/main.326e1300.chunk.css.map",
     "static/js/2.a773ac66.chunk.js.LICENSE.txt": "/quiz-poly/static/js/2.a773ac66.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.96493a75.js",
     "static/js/2.a773ac66.chunk.js",
-    "static/css/main.326e1300.chunk.css",
+    "static/css/main.9de5d004.chunk.css",
     "static/js/main.6af5fdd1.chunk.js"
   ]
 }
