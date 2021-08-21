@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/quiz-poly/static/css/main.326e1300.chunk.css",
-    "main.js": "/quiz-poly/static/js/main.ca82bd9e.chunk.js",
-    "main.js.map": "/quiz-poly/static/js/main.ca82bd9e.chunk.js.map",
+    "main.js": "/quiz-poly/static/js/main.6af5fdd1.chunk.js",
+    "main.js.map": "/quiz-poly/static/js/main.6af5fdd1.chunk.js.map",
     "runtime-main.js": "/quiz-poly/static/js/runtime-main.96493a75.js",
     "runtime-main.js.map": "/quiz-poly/static/js/runtime-main.96493a75.js.map",
     "static/js/2.a773ac66.chunk.js": "/quiz-poly/static/js/2.a773ac66.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.96493a75.js",
     "static/js/2.a773ac66.chunk.js",
     "static/css/main.326e1300.chunk.css",
-    "static/js/main.ca82bd9e.chunk.js"
+    "static/js/main.6af5fdd1.chunk.js"
   ]
 }
