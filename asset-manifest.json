@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/quiz-poly/static/css/main.9de5d004.chunk.css",
-    "main.js": "/quiz-poly/static/js/main.6af5fdd1.chunk.js",
+    "main.js": "/quiz-poly/static/js/main.e36d82b0.chunk.js",
     "runtime-main.js": "/quiz-poly/static/js/runtime-main.96493a75.js",
     "static/js/2.a773ac66.chunk.js": "/quiz-poly/static/js/2.a773ac66.chunk.js",
     "static/js/3.38894b29.chunk.js": "/quiz-poly/static/js/3.38894b29.chunk.js",
@@ -12,6 +12,6 @@
     "static/js/runtime-main.96493a75.js",
     "static/js/2.a773ac66.chunk.js",
     "static/css/main.9de5d004.chunk.css",
-    "static/js/main.6af5fdd1.chunk.js"
+    "static/js/main.e36d82b0.chunk.js"
   ]
 }
