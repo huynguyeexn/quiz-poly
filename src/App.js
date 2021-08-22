@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import LIST_PAGE from "./pages/listPage";
-import QUIZ_PAGE from "./pages/quizPage";
+import QUIZ_PAGE from "./features/quiz/quizPage";
+import LIST_PAGE from "./features/section/listPage";
 
 const App = () => {
   return (

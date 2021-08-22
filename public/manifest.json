@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Fpoly Quiz | Code by HUi",
+  "name": "Fpoly Quiz Chính Tr, Pháp luật | Code by HUi",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#c0cddb",
+  "background_color": "#111827"
 }
