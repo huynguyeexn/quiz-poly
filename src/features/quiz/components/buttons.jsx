@@ -20,7 +20,7 @@ const BUTTON_GROUP = () => {
         {currentIndex > 0 && (
           <button
             onClick={prevOnClick}
-            className="px-6 py-3 font-semibold duration-200 border-2 border-purple-900 rounded-lg hover:border-purple-700 hover:bg-gray-700"
+            className="px-6 py-3 font-semibold duration-200 border-2 border-gray-700 rounded-lg hover:border-purple-700 hover:bg-gray-700"
           >
             Câu {currentIndex}
           </button>
@@ -30,7 +30,7 @@ const BUTTON_GROUP = () => {
         {currentIndex < quizzes.length - 1 && (
           <button
             onClick={nextOnClick}
-            className="px-6 py-3 font-semibold duration-200 border-2 border-purple-900 rounded-lg hover:border-purple-700 hover:bg-gray-700"
+            className="px-6 py-3 font-semibold duration-200 border-2 border-gray-700 rounded-lg hover:border-purple-700 hover:bg-gray-700"
           >
             Câu {currentIndex + 2}
           </button>

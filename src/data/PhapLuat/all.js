@@ -1,3 +1,4 @@
+import { final } from "./final";
 import { PhapLuat1 } from "./section1";
 import { PhapLuat2 } from "./section2";
 import { PhapLuat3 } from "./section3";
@@ -18,6 +19,7 @@ export const allPhapLuat = {
     PhapLuat6,
     PhapLuat7,
     PhapLuat8,
+    final,
     {
       name: "Bài tổng hợp",
       quizList: [
@@ -29,6 +31,7 @@ export const allPhapLuat = {
         ...PhapLuat6.quizList,
         ...PhapLuat7.quizList,
         ...PhapLuat8.quizList,
+        ...final.quizList,
       ],
     },
   ],
