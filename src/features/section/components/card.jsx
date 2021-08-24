@@ -19,7 +19,7 @@ const CARD_SECTION = ({ quiz, quizIndex, sectionIndex }) => {
 
   return (
     <div
-      onClick={handleOnClick(sectionIndex, quizIndex)}
+      onClick={(e) => handleOnClick(sectionIndex, quizIndex)}
       className="flex flex-row justify-between w-full mb-4 overflow-hidden duration-300 transform bg-gray-800 rounded-lg cursor-pointer hover:scale-105"
       key={quizIndex}
     >
