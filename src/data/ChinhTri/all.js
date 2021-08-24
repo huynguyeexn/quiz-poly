@@ -1,3 +1,4 @@
+import { final } from "./final";
 import { ChinhTri1 } from "./section1";
 import { ChinhTri10 } from "./section10";
 import { ChinhTri11 } from "./section11";
@@ -30,6 +31,7 @@ export const allChinhTri = {
     ChinhTri12,
     ChinhTri13,
     ChinhTri14,
+    final,
     {
       name: "Bài tổng hợp",
       quizList: [
@@ -47,6 +49,7 @@ export const allChinhTri = {
         ...ChinhTri12.quizList,
         ...ChinhTri13.quizList,
         ...ChinhTri14.quizList,
+        ...final.quizList,
       ],
     },
   ],
