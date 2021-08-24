@@ -45,7 +45,7 @@ const QUIZ_PAGE = () => {
     <>
       {section && (
         <div className="max-w-xl my-3 text-lg text-gray-300">
-          <div className="flex items-center justify-start space-x-4">
+          <div className="flex justify-start space-x-4">
             <button
               title="Quay về trang danh sách"
               onClick={(e) => history.push("/")}

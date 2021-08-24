@@ -9,10 +9,13 @@ const LIST_PAGE = () => {
     <>
       {sections &&
         sections.map((section, sectionIndex) => (
-          <div className="mb-4" key={sectionIndex}>
-            <h1 className="sticky top-0 z-10 p-4 text-xl font-bold bg-gray-900">
-              {section.name}
-            </h1>
+          <div
+            className="flex flex-col items-center w-full mb-4"
+            key={sectionIndex}
+          >
+            <div className="sticky top-0 z-10 flex justify-center w-full p-4 text-xl font-bold bg-gray-900">
+              <h1 className="max-w-2xl">{section.name}</h1>
+            </div>
             <div className="max-w-2xl p-4 text-gray-300">
               {section.allQuiz.map((quiz, quizIndex) => (
                 <CARD_SECTION

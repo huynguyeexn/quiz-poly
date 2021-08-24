@@ -19,7 +19,8 @@ const CARD_SECTION = ({ quiz, quizIndex, sectionIndex }) => {
 
   return (
     <div
-      className="flex flex-row justify-between w-full mb-4 overflow-hidden duration-300 transform bg-gray-800 rounded-lg hover:scale-105"
+      onClick={handleOnClick}
+      className="flex flex-row justify-between w-full mb-4 overflow-hidden duration-300 transform bg-gray-800 rounded-lg cursor-pointer hover:scale-105"
       key={quizIndex}
     >
       <div className="p-6">
@@ -30,12 +31,6 @@ const CARD_SECTION = ({ quiz, quizIndex, sectionIndex }) => {
           </span>
         </h3>
       </div>
-      <button
-        onClick={(e) => handleOnClick(sectionIndex, quizIndex)}
-        className="flex items-center justify-center px-8 py-4 font-semibold duration-200 bg-gradient-to-r from-blue-600 via-purple-700 to-purple-700 hover:opacity-70"
-      >
-        <HiOutlineArrowRight></HiOutlineArrowRight>
-      </button>
     </div>
   );
 };
